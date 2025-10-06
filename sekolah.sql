@@ -18,6 +18,11 @@ CREATE TABLE guru (
     mata_pelajaran VARCHAR(50)
 );
 
+CREATE TABLE kelas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_kelas VARCHAR(20)
+);
+
 INSERT INTO siswa (nama, umur, jurusan) VALUES
 ('Andi', 16, 'IPA'),
 ('Budi', 17, 'IPS'),
@@ -48,6 +53,25 @@ INSERT INTO guru (nama, mata_pelajaran) VALUES
 ('Agus Salim', 'Sejarah'),
 ('Bambang', 'Geografi'),
 ('Yuli', 'Bahasa Inggris');
+
+INSERT INTO kelas (nama_kelas)
+VALUES 
+('X IPA 1'), 
+('X IPS 1'), 
+('XI IPA 2');
+
+-- ini untuk menambah kolom say
+ALTER TABLE siswa ADD COLUMN kelas_id INT;
+
+ALTER TABLE siswa
+ADD CONSTRAINT fk_siswa_kelas
+FOREIGN KEY (kelas_id) REFERENCES kelas(id);
+
+UPDATE siswa SET kelas_id = 1 WHERE id = 1;
+UPDATE siswa SET kelas_id = 2 WHERE id = 2;
+UPDATE siswa SET kelas_id = 1 WHERE id = 3;
+UPDATE siswa SET kelas_id = 3 WHERE id = 4;
+UPDATE siswa SET kelas_id = 2 WHERE id = 5;
 
 select * from siswa where jurusan = 'IPA';
 
