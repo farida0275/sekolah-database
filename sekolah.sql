@@ -12,6 +12,12 @@ create table nilai(
   nilai INT
 );
 
+CREATE TABLE guru (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(50) NOT NULL,
+    mata_pelajaran VARCHAR(50)
+);
+
 INSERT INTO siswa (nama, umur, jurusan) VALUES
 ('Andi', 16, 'IPA'),
 ('Budi', 17, 'IPS'),
@@ -35,6 +41,13 @@ INSERT INTO nilai (siswa_id, mata_pelajaran, nilai) VALUES
 (5, 'Geografi', 86);
 
 select * from nilai;
+
+INSERT INTO guru (nama, mata_pelajaran) VALUES
+('Ahmad Dani', 'Matematika'),
+('Khoiri', 'Bahasa Indonesia'),
+('Agus Salim', 'Sejarah'),
+('Bambang', 'Geografi'),
+('Yuli', 'Bahasa Inggris');
 
 select * from siswa where jurusan = 'IPA';
 
